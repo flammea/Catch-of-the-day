@@ -6,12 +6,12 @@ class StorePicer extends React.Component {
     myInput = React.createRef();
     goToStore = (event) => {
         event.preventDefault();
-        const storeName = this.myInput.value.value;
+        const storeName = this.myInput.current.value;
         this.props.history.push(`/store/${storeName}`);
     }
     render() {
         return (
-            <form className="store-selector" onSubmit={this.goToStore}>
+            <form className="store-selector" onSubmit={this.goToStore.bind(this)}>
                 <h2>Please enter a Store</h2>
                 <input
                     type="text"
